@@ -1,0 +1,7 @@
+#!/bin/bash
+
+working_dir=$(pwd)
+
+cd src
+
+docker build -t skyci:latest .
