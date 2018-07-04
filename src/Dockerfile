@@ -1,2 +1,3 @@
-FROM nginx:alpine
-COPY web /usr/share/nginx/html
+FROM tiangolo/uwsgi-nginx-flask:python3.6
+RUN pip install docker
+COPY server /app
