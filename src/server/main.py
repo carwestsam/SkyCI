@@ -1,7 +1,8 @@
-from flask import Flask
+from flask import Flask, Response
 import docker
 import yaml
-import os 
+import os
+
 dir_path = os.path.dirname(os.path.realpath(__file__))
 f = open(dir_path + '/skyci.yml', 'r')
 config = yaml.load(f.read())
@@ -16,8 +17,13 @@ def hello():
 
 @app.route("/hello")
 def helloFromDocker():
-    x = client.containers.run("ubuntu:16.04", config['bash'], detach=False, stdout=True) 
-    return x
+    tasks = config['tasks']
+    def generate():
+        for taskName in tasks:
+            task = tasks[taskName]
+            print (task)
+            yield str(client.containers.run(task['image'], task['command'], detach=False, stdout=True)) + '\n'
+    return Response(generate())
 
 if __name__ == "__main__":
     # Only for debugging while developing

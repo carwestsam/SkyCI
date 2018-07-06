@@ -1,1 +1,7 @@
-bash: echo hello
+tasks:
+  foo:
+    image: ubuntu:16.04
+    command: bash -c 'sleep 1 && echo hello foo'
+  bar:
+    image: ubuntu:16.04
+    command: bash -c 'sleep 2 && echo hello bar'
