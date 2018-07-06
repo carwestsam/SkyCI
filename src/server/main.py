@@ -22,7 +22,16 @@ def helloFromDocker():
         for taskName in tasks:
             task = tasks[taskName]
             print (task)
-            yield str(client.containers.run(task['image'], task['command'], detach=False, stdout=True)) + '\n'
+            try:
+                result = str(client.containers.run(task['image'], task['command'], detach=False, stdout=True, stderr=True)) + '\n'
+                print (result)
+            except docker.errors.ContainerError as error:
+                print(error)
+                result = str(error)
+            except docker.errors.ImageNotFound as error:
+                print(error)
+                result = str(error)
+            yield result
     return Response(generate())
 
 if __name__ == "__main__":

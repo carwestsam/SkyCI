@@ -4,4 +4,4 @@ tasks:
     command: bash -c 'sleep 1 && echo hello foo'
   bar:
     image: ubuntu:16.04
-    command: bash -c 'sleep 2 && echo hello bar'
+    command: bash -c 'sleep 2 && echo hello bar >&2 && exit 1'
