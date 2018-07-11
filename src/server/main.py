@@ -3,21 +3,26 @@ import docker
 import yaml
 import os
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
-f = open(dir_path + '/skyci.yml', 'r')
-config = yaml.load(f.read())
-print(config)
+static_path = os.path.realpath(os.path.join(dir_path , '../web'))
+print('static_path', static_path)
+if __name__ == "__main__":
+    app = Flask(__name__, static_url_path='', static_folder=static_path)
+else:
+    app = Flask(__name__)
 
-app = Flask(__name__)
 client = docker.from_env()
 
 @app.route("/")
 def hello():
-    return "Hello Worlx from Flask"
+    return app.send_static_file('index.html')
 
 @app.route("/hello")
 def helloFromDocker():
-    tasks = config['tasks']
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    f = open(dir_path + '/skyci.yml', 'r')
+    server = yaml.load(f.read())
+    print(config)
+    tasks = config['tasks'] 
     def generate():
         for taskName in tasks:
             task = tasks[taskName]
