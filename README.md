@@ -26,3 +26,4 @@
 workspace通过volume来持久化，并且分版本记录
 - 更加容易地扩缩容，所以需要微服务化拆分（服务发现，消息队列，事件分发)
 - 更加简洁易懂的源代码，比如DDD
+- 流水线的配置也应该有版本管理（ pipeline as code & version control )
