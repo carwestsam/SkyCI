@@ -17,13 +17,18 @@ client = docker.from_env()
 def hello():
     return app.send_static_file('index.html')
 
+def exe(task):
+    result = str(client.containers.run(task['image'], task['command'], detach=False, stdout=True, stderr=True)) + '\n'
+    print (result)
+    return result
+
 @app.route("/execute", methods=['POST'])
 def execute():
     image = request.form['image_name']
-    script = request.form['build_script']
-    print('image', image)
-    print('script', script)
-    return "done"
+    command = request.form['build_script']
+    print("execute")
+    task = {"image": image, "command": command}
+    return exe(task)
 
 @app.route("/hello")
 def helloFromDocker():
@@ -32,20 +37,7 @@ def helloFromDocker():
     server = yaml.load(f.read())
     print(config)
     tasks = config['tasks'] 
-    def generate():
-        for taskName in tasks:
-            task = tasks[taskName]
-            print (task)
-            try:
-                result = str(client.containers.run(task['image'], task['command'], detach=False, stdout=True, stderr=True)) + '\n'
-                print (result)
-            except docker.errors.ContainerError as error:
-                print(error)
-                result = str(error)
-            except docker.errors.ImageNotFound as error:
-                print(error)
-                result = str(error)
-            yield result
+
     return Response(generate())
 
 if __name__ == "__main__":
