@@ -1,7 +1,9 @@
 from flask import Flask, Response, request
+import requests as rt
 import docker
 import yaml
 import os
+import re
 
 cwd = os.getcwd()
 static_path = os.path.realpath(os.path.join(cwd , '../web'))
@@ -24,21 +26,18 @@ def exe(task):
 
 @app.route("/execute", methods=['POST'])
 def execute():
-    image = request.form['image_name']
-    command = request.form['build_script']
-    print("execute")
-    task = {"image": image, "command": command}
-    return exe(task)
-
-@app.route("/hello")
-def helloFromDocker():
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    f = open(dir_path + '/skyci.yml', 'r')
-    server = yaml.load(f.read())
-    print(config)
-    tasks = config['tasks'] 
-
-    return Response(generate())
+    git_url = request.form['git_url']
+    print("execute url", git_url)
+    build_file_url = re.sub("github.com", "raw.githubusercontent.com", git_url)
+    build_file_url = re.sub(".git$", "/master/build.yml", build_file_url)
+    print(build_file_url)
+    build_file = rt.get(build_file_url).text
+    print(build_file)
+    data = yaml.load(build_file)
+    print(data)
+    task = {"image": data['build']['image'], "command": data['build']['command']}
+    # task = {"image": image, "command": command}
+    return  exe(task)
 
 if __name__ == "__main__":
     # Only for debugging while developing
