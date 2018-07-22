@@ -1,9 +1,10 @@
-from flask import Flask, Response
+from flask import Flask, Response, request
 import docker
 import yaml
 import os
 
-static_path = os.path.realpath(os.path.join(dir_path , '../web'))
+cwd = os.getcwd()
+static_path = os.path.realpath(os.path.join(cwd , '../web'))
 print('static_path', static_path)
 if __name__ == "__main__":
     app = Flask(__name__, static_url_path='', static_folder=static_path)
@@ -15,6 +16,14 @@ client = docker.from_env()
 @app.route("/")
 def hello():
     return app.send_static_file('index.html')
+
+@app.route("/execute", methods=['POST'])
+def execute():
+    image = request.form['image_name']
+    script = request.form['build_script']
+    print('image', image)
+    print('script', script)
+    return "done"
 
 @app.route("/hello")
 def helloFromDocker():
@@ -41,4 +50,4 @@ def helloFromDocker():
 
 if __name__ == "__main__":
     # Only for debugging while developing
-    app.run(host='0.0.0.0', debug=True, port=8081)
+    app.run(host='0.0.0.0', debug=True, port=9001)
