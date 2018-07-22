@@ -20,9 +20,18 @@ def hello():
     return app.send_static_file('index.html')
 
 def exe(task):
-    result = str(client.containers.run(task['image'], task['command'], detach=False, stdout=True, stderr=True)) + '\n'
+    result = client.containers.run(task['image'], task['command'], detach=False, stdout=True, stderr=True).decode("utf-8")
     print (result)
     return result
+
+def configHandler(data):
+    print('data', data)
+    tasks = data['tasks']
+    result = {}
+    for taskName in tasks:
+        task = tasks[taskName]
+        result[taskName] = exe(task)
+    return str(result)
 
 @app.route("/execute", methods=['POST'])
 def execute():
@@ -34,10 +43,7 @@ def execute():
     build_file = rt.get(build_file_url).text
     print(build_file)
     data = yaml.load(build_file)
-    print(data)
-    task = {"image": data['build']['image'], "command": data['build']['command']}
-    # task = {"image": image, "command": command}
-    return  exe(task)
+    return configHandler(data)
 
 if __name__ == "__main__":
     # Only for debugging while developing
