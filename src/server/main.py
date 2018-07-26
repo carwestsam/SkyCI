@@ -1,17 +1,12 @@
-from flask import Flask, Response, request
+from flask import request
 import requests as rt
 import docker
 import yaml
-import os
 import re
+from controllers.pipeline.controller import pipelineCtrl
+from application.appx import app
 
-cwd = os.getcwd()
-static_path = os.path.realpath(os.path.join(cwd , '../web'))
-print('static_path', static_path)
-if __name__ == "__main__":
-    app = Flask(__name__, static_url_path='', static_folder=static_path)
-else:
-    app = Flask(__name__)
+app.register_blueprint(pipelineCtrl, url_prefix='/pipeline')
 
 client = docker.from_env()
 
