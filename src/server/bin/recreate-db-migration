@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+./bin/stop-db
+./bin/start-db
+rm -r migrations/versions/*.py
+sleep 5
+./bin/create-migrate
+./bin/db-upgrade
