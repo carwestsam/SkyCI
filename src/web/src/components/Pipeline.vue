@@ -6,7 +6,7 @@
             <label for="pl_path">Build file name</label><input type="text" id="pl_path" v-model="pl_path"><br>
             <input type="submit" value="submit" @click="createPipeline()">
         </form>
-        <div class="pipeline" v-for="pl in pipelines">
+        <div class="pipeline" v-for="pl in pipelines" :key="pl.id">
             <h3>{{pl.name}}</h3>
             <h5>{{pl.status}}</h5>
             <code>{{pl.gitUrl}}</code>
