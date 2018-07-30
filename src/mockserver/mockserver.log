@@ -1,0 +1,1054 @@
+2018-07-23 14:49:41,112 INFO [MockServer thread for port: 1080] o.mockserver.mockserver.MockServer [?:?] MockServer started on port: 1080
+2018-07-23 14:49:41,141 INFO [MockServer thread for port: 1090] org.mockserver.proxy.http.HttpProxy [?:?] MockServer started on port: 1090
+2018-07-23 14:49:41,680 INFO [nioEventLoopGroup-3-1] o.mockserver.mock.HttpStateHandler [?:?] resetting all expectations and request logs
+
+2018-07-23 14:50:42,351 INFO [nioEventLoopGroup-3-2] o.mockserver.mock.HttpStateHandler [?:?] creating expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/login",
+	    "body" : "{username: 'foo', password: 'bar'}"
+	  },
+	  "times" : {
+	    "remainingTimes" : 1,
+	    "unlimited" : false
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 302,
+	    "headers" : {
+	      "Content-Type" : [ "application/json; charset=utf-8" ],
+	      "Cache-Control" : [ "no-cache, no-store" ]
+	    },
+	    "cookies" : {
+	      "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	    }
+	  }
+	}
+
+2018-07-23 14:53:10,793 INFO [nioEventLoopGroup-3-3] o.mockserver.mock.HttpStateHandler [?:?] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\n\t\"username\":\"foo\",\n\t\"password\":\"bar\"\n}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "headers" : {
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Postman-Token" : [ "c67ed13a-5223-9f69-4a57-006978a17844" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "40" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ did not match expectation:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : "{username: 'foo', password: 'bar'}"
+	}
+
+ because:
+
+	method matches = true
+	path matches = true
+	query string parameters match = true
+	body matches = false
+	headers match = true
+	cookies match = true
+	keep-alive matches = true
+	ssl matches = true
+
+2018-07-23 14:53:10,797 INFO [nioEventLoopGroup-3-3] o.mockserver.mock.HttpStateHandler [?:?] no matching expectation - returning:
+
+	{
+	  "statusCode" : 404,
+	  "reasonPhrase" : "Not Found"
+	}
+
+ for request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\n\t\"username\":\"foo\",\n\t\"password\":\"bar\"\n}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "headers" : {
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Postman-Token" : [ "c67ed13a-5223-9f69-4a57-006978a17844" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "40" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+2018-07-23 14:54:45,791 INFO [nioEventLoopGroup-3-4] o.mockserver.mock.HttpStateHandler [?:?] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\"username\":\"foo\",\"password\":\"bar\"}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "headers" : {
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Postman-Token" : [ "3500128d-531e-be73-695f-89e955e89334" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "35" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ did not match expectation:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : "{username: 'foo', password: 'bar'}"
+	}
+
+ because:
+
+	method matches = true
+	path matches = true
+	query string parameters match = true
+	body matches = false
+	headers match = true
+	cookies match = true
+	keep-alive matches = true
+	ssl matches = true
+
+2018-07-23 14:54:45,794 INFO [nioEventLoopGroup-3-4] o.mockserver.mock.HttpStateHandler [?:?] no matching expectation - returning:
+
+	{
+	  "statusCode" : 404,
+	  "reasonPhrase" : "Not Found"
+	}
+
+ for request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\"username\":\"foo\",\"password\":\"bar\"}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "headers" : {
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Postman-Token" : [ "3500128d-531e-be73-695f-89e955e89334" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "35" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+2018-07-23 14:56:07,706 INFO [nioEventLoopGroup-3-5] o.mockserver.mock.HttpStateHandler [?:?] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{username:'foo',password:'bar'}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "headers" : {
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Postman-Token" : [ "0036c4f7-908f-b46a-d81b-02a1d3a661a0" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "31" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ did not match expectation:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : "{username: 'foo', password: 'bar'}"
+	}
+
+ because:
+
+	method matches = true
+	path matches = true
+	query string parameters match = true
+	body matches = false
+	headers match = true
+	cookies match = true
+	keep-alive matches = true
+	ssl matches = true
+
+2018-07-23 14:56:07,709 INFO [nioEventLoopGroup-3-5] o.mockserver.mock.HttpStateHandler [?:?] no matching expectation - returning:
+
+	{
+	  "statusCode" : 404,
+	  "reasonPhrase" : "Not Found"
+	}
+
+ for request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{username:'foo',password:'bar'}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "headers" : {
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Postman-Token" : [ "0036c4f7-908f-b46a-d81b-02a1d3a661a0" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "31" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+2018-07-23 14:57:02,808 INFO [nioEventLoopGroup-3-6] o.mockserver.mock.HttpStateHandler [?:?] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\"username\": \"foo\", \"password\": \"bar\"}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "headers" : {
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Postman-Token" : [ "d6509f28-aabf-d873-b385-7cbe933a1bac" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "38" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ did not match expectation:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : "{username: 'foo', password: 'bar'}"
+	}
+
+ because:
+
+	method matches = true
+	path matches = true
+	query string parameters match = true
+	body matches = false
+	headers match = true
+	cookies match = true
+	keep-alive matches = true
+	ssl matches = true
+
+2018-07-23 14:57:02,809 INFO [nioEventLoopGroup-3-6] o.mockserver.mock.HttpStateHandler [?:?] no matching expectation - returning:
+
+	{
+	  "statusCode" : 404,
+	  "reasonPhrase" : "Not Found"
+	}
+
+ for request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\"username\": \"foo\", \"password\": \"bar\"}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "headers" : {
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Postman-Token" : [ "d6509f28-aabf-d873-b385-7cbe933a1bac" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "38" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+2018-07-23 14:57:37,511 INFO [nioEventLoopGroup-3-7] o.mockserver.mock.HttpStateHandler [?:?] creating expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/login",
+	    "body" : "{\"username\": \"foo\", \"password\": \"bar\"}"
+	  },
+	  "times" : {
+	    "remainingTimes" : 1,
+	    "unlimited" : false
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 302,
+	    "headers" : {
+	      "Content-Type" : [ "application/json; charset=utf-8" ],
+	      "Cache-Control" : [ "no-cache, no-store" ]
+	    },
+	    "cookies" : {
+	      "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	    }
+	  }
+	}
+
+2018-07-23 14:57:40,791 INFO [nioEventLoopGroup-3-6] o.mockserver.mock.HttpStateHandler [?:?] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\"username\": \"foo\", \"password\": \"bar\"}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "headers" : {
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Postman-Token" : [ "fdbffc51-0871-6330-d4ba-db3e65d5942c" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "38" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ did not match expectation:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : "{username: 'foo', password: 'bar'}"
+	}
+
+ because:
+
+	method matches = true
+	path matches = true
+	query string parameters match = true
+	body matches = false
+	headers match = true
+	cookies match = true
+	keep-alive matches = true
+	ssl matches = true
+
+2018-07-23 14:57:40,793 INFO [nioEventLoopGroup-3-6] o.mockserver.mock.HttpStateHandler [?:?] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\"username\": \"foo\", \"password\": \"bar\"}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "headers" : {
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Postman-Token" : [ "fdbffc51-0871-6330-d4ba-db3e65d5942c" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "38" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ matched expectation:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : "{\"username\": \"foo\", \"password\": \"bar\"}"
+	}
+
+2018-07-23 14:57:40,801 INFO [nioEventLoopGroup-3-6] o.mockserver.mock.HttpStateHandler [?:?] returning response:
+
+	{
+	  "statusCode" : 302,
+	  "headers" : {
+	    "Content-Type" : [ "application/json; charset=utf-8" ],
+	    "Cache-Control" : [ "no-cache, no-store" ],
+	    "connection" : [ "keep-alive" ]
+	  },
+	  "cookies" : {
+	    "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	  }
+	}
+
+ for request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\"username\": \"foo\", \"password\": \"bar\"}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "headers" : {
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Postman-Token" : [ "fdbffc51-0871-6330-d4ba-db3e65d5942c" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "38" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ for response action:
+
+	{
+	  "statusCode" : 302,
+	  "headers" : {
+	    "Content-Type" : [ "application/json; charset=utf-8" ],
+	    "Cache-Control" : [ "no-cache, no-store" ]
+	  },
+	  "cookies" : {
+	    "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	  }
+	}
+
+2018-07-23 15:00:46,883 INFO [nioEventLoopGroup-3-8] o.mockserver.mock.HttpStateHandler [?:?] request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/",
+	  "cookies" : {
+	    "username-localhost-8888" : "2|1:0|10:1530671319|23:username-localhost-8888|44:NzAxODFjYzg4OGMyNDM4OWFmOWI5ODQ4ODQ0OTY1MmY=|1c127856e0cf46a640831580c7d2c8c3f96fccd3f166058ca5cd3919895e17bb",
+	    "_gat" : "1",
+	    "_ga" : "GA1.1.1925747301.1528959039",
+	    "_xsrf" : "2|547457f0|2cf0090e6723fc0f1377aa9f0e66570e|1530590082",
+	    "_gid" : "GA1.1.1238941308.1532315765"
+	  },
+	  "headers" : {
+	    "Cookie" : [ "_ga=GA1.1.1925747301.1528959039; _xsrf=2|547457f0|2cf0090e6723fc0f1377aa9f0e66570e|1530590082; username-localhost-8888=\"2|1:0|10:1530671319|23:username-localhost-8888|44:NzAxODFjYzg4OGMyNDM4OWFmOWI5ODQ4ODQ0OTY1MmY=|1c127856e0cf46a640831580c7d2c8c3f96fccd3f166058ca5cd3919895e17bb\"; _gid=GA1.1.1238941308.1532315765; _gat=1" ],
+	    "content-length" : [ "0" ],
+	    "Accept" : [ "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8" ],
+	    "Upgrade-Insecure-Requests" : [ "1" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Proxy-Connection" : [ "keep-alive" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ did not match expectation:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : "{username: 'foo', password: 'bar'}"
+	}
+
+ because:
+
+	method matches = false
+	path matches = false
+	query string parameters match = true
+	body matches = false
+	headers match = true
+	cookies match = true
+	keep-alive matches = true
+	ssl matches = true
+
+2018-07-23 15:00:46,885 INFO [nioEventLoopGroup-3-8] o.mockserver.mock.HttpStateHandler [?:?] no matching expectation - returning:
+
+	{
+	  "statusCode" : 404,
+	  "reasonPhrase" : "Not Found"
+	}
+
+ for request:
+
+	{
+	  "method" : "GET",
+	  "path" : "/",
+	  "cookies" : {
+	    "username-localhost-8888" : "2|1:0|10:1530671319|23:username-localhost-8888|44:NzAxODFjYzg4OGMyNDM4OWFmOWI5ODQ4ODQ0OTY1MmY=|1c127856e0cf46a640831580c7d2c8c3f96fccd3f166058ca5cd3919895e17bb",
+	    "_gat" : "1",
+	    "_ga" : "GA1.1.1925747301.1528959039",
+	    "_xsrf" : "2|547457f0|2cf0090e6723fc0f1377aa9f0e66570e|1530590082",
+	    "_gid" : "GA1.1.1238941308.1532315765"
+	  },
+	  "headers" : {
+	    "Cookie" : [ "_ga=GA1.1.1925747301.1528959039; _xsrf=2|547457f0|2cf0090e6723fc0f1377aa9f0e66570e|1530590082; username-localhost-8888=\"2|1:0|10:1530671319|23:username-localhost-8888|44:NzAxODFjYzg4OGMyNDM4OWFmOWI5ODQ4ODQ0OTY1MmY=|1c127856e0cf46a640831580c7d2c8c3f96fccd3f166058ca5cd3919895e17bb\"; _gid=GA1.1.1238941308.1532315765; _gat=1" ],
+	    "content-length" : [ "0" ],
+	    "Accept" : [ "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8" ],
+	    "Upgrade-Insecure-Requests" : [ "1" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Proxy-Connection" : [ "keep-alive" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+2018-07-23 15:01:27,548 INFO [nioEventLoopGroup-3-9] o.mockserver.mock.HttpStateHandler [?:?] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\"username\": \"foo\", \"password\": \"bar\"}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "cookies" : {
+	    "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	  },
+	  "headers" : {
+	    "Cookie" : [ "sessionId=2By8LOhBmaW5nZXJwcmludCIlMDAzMW" ],
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "Postman-Token" : [ "42c8b485-cb34-01a3-4d33-8f9cf4ac2000" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "38" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ did not match expectation:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : "{username: 'foo', password: 'bar'}"
+	}
+
+ because:
+
+	method matches = true
+	path matches = true
+	query string parameters match = true
+	body matches = false
+	headers match = true
+	cookies match = true
+	keep-alive matches = true
+	ssl matches = true
+
+2018-07-23 15:01:27,549 INFO [nioEventLoopGroup-3-9] o.mockserver.mock.HttpStateHandler [?:?] no matching expectation - returning:
+
+	{
+	  "statusCode" : 404,
+	  "reasonPhrase" : "Not Found"
+	}
+
+ for request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\"username\": \"foo\", \"password\": \"bar\"}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "cookies" : {
+	    "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	  },
+	  "headers" : {
+	    "Cookie" : [ "sessionId=2By8LOhBmaW5nZXJwcmludCIlMDAzMW" ],
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "Postman-Token" : [ "42c8b485-cb34-01a3-4d33-8f9cf4ac2000" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "38" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+2018-07-23 15:02:10,235 INFO [MockServer thread for port: 1080] o.mockserver.mockserver.MockServer [?:?] MockServer started on port: 1080
+2018-07-23 15:02:10,262 INFO [MockServer thread for port: 1090] org.mockserver.proxy.http.HttpProxy [?:?] MockServer started on port: 1090
+2018-07-23 15:02:10,719 INFO [nioEventLoopGroup-3-1] o.mockserver.mock.HttpStateHandler [?:?] resetting all expectations and request logs
+
+2018-07-23 15:02:13,684 INFO [nioEventLoopGroup-3-2] o.mockserver.mock.HttpStateHandler [?:?] creating expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/login",
+	    "body" : "{\"username\": \"foo\", \"password\": \"bar\"}"
+	  },
+	  "times" : {
+	    "remainingTimes" : 1,
+	    "unlimited" : false
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 302,
+	    "headers" : {
+	      "Content-Type" : [ "application/json; charset=utf-8" ],
+	      "Cache-Control" : [ "no-cache, no-store" ]
+	    },
+	    "cookies" : {
+	      "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	    }
+	  }
+	}
+
+2018-07-23 15:02:19,559 INFO [nioEventLoopGroup-3-3] o.mockserver.mock.HttpStateHandler [?:?] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\"username\": \"foo\", \"password\": \"bar\"}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "cookies" : {
+	    "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	  },
+	  "headers" : {
+	    "Cookie" : [ "sessionId=2By8LOhBmaW5nZXJwcmludCIlMDAzMW" ],
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "Postman-Token" : [ "f0f062a5-b912-7909-7b7d-20fe8aeb33cd" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "38" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ matched expectation:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : "{\"username\": \"foo\", \"password\": \"bar\"}"
+	}
+
+2018-07-23 15:02:19,565 INFO [nioEventLoopGroup-3-3] o.mockserver.mock.HttpStateHandler [?:?] returning response:
+
+	{
+	  "statusCode" : 302,
+	  "headers" : {
+	    "Content-Type" : [ "application/json; charset=utf-8" ],
+	    "Cache-Control" : [ "no-cache, no-store" ],
+	    "connection" : [ "keep-alive" ]
+	  },
+	  "cookies" : {
+	    "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	  }
+	}
+
+ for request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\"username\": \"foo\", \"password\": \"bar\"}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "cookies" : {
+	    "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	  },
+	  "headers" : {
+	    "Cookie" : [ "sessionId=2By8LOhBmaW5nZXJwcmludCIlMDAzMW" ],
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "Postman-Token" : [ "f0f062a5-b912-7909-7b7d-20fe8aeb33cd" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "38" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ for response action:
+
+	{
+	  "statusCode" : 302,
+	  "headers" : {
+	    "Content-Type" : [ "application/json; charset=utf-8" ],
+	    "Cache-Control" : [ "no-cache, no-store" ]
+	  },
+	  "cookies" : {
+	    "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	  }
+	}
+
+2018-07-23 15:29:48,174 INFO [nioEventLoopGroup-3-4] o.mockserver.mock.HttpStateHandler [?:?] no active expectations when receiving request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\"username\": \"foo\", \"password\": \"bar\"}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "cookies" : {
+	    "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	  },
+	  "headers" : {
+	    "Cookie" : [ "sessionId=2By8LOhBmaW5nZXJwcmludCIlMDAzMW" ],
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "Postman-Token" : [ "126f4cc3-4a1e-a0b6-bd2f-c7d68f73b2d2" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "38" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+2018-07-23 15:29:48,188 INFO [nioEventLoopGroup-3-4] o.mockserver.mock.HttpStateHandler [?:?] no matching expectation - returning:
+
+	{
+	  "statusCode" : 404,
+	  "reasonPhrase" : "Not Found"
+	}
+
+ for request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\"username\": \"foo\", \"password\": \"bar\"}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "cookies" : {
+	    "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	  },
+	  "headers" : {
+	    "Cookie" : [ "sessionId=2By8LOhBmaW5nZXJwcmludCIlMDAzMW" ],
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "Postman-Token" : [ "126f4cc3-4a1e-a0b6-bd2f-c7d68f73b2d2" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "38" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+2018-07-23 15:30:07,763 INFO [nioEventLoopGroup-3-5] o.mockserver.mock.HttpStateHandler [?:?] creating expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/login",
+	    "body" : "{\"username\": \"foo\", \"password\": \"bar\"}"
+	  },
+	  "times" : {
+	    "remainingTimes" : 1,
+	    "unlimited" : false
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 302,
+	    "headers" : {
+	      "Content-Type" : [ "application/json; charset=utf-8" ],
+	      "Cache-Control" : [ "no-cache, no-store" ]
+	    },
+	    "cookies" : {
+	      "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	    }
+	  }
+	}
+
+2018-07-23 15:30:17,483 INFO [MockServer thread for port: 1080] o.mockserver.mockserver.MockServer [?:?] MockServer started on port: 1080
+2018-07-23 15:30:17,511 INFO [MockServer thread for port: 1090] org.mockserver.proxy.http.HttpProxy [?:?] MockServer started on port: 1090
+2018-07-23 15:30:17,964 INFO [nioEventLoopGroup-3-1] o.mockserver.mock.HttpStateHandler [?:?] resetting all expectations and request logs
+
+2018-07-23 15:30:22,453 INFO [nioEventLoopGroup-3-2] o.mockserver.mock.HttpStateHandler [?:?] creating expectation:
+
+	{
+	  "httpRequest" : {
+	    "method" : "POST",
+	    "path" : "/login",
+	    "body" : "{\"username\": \"foo\", \"password\": \"bar\"}"
+	  },
+	  "times" : {
+	    "remainingTimes" : 1,
+	    "unlimited" : false
+	  },
+	  "timeToLive" : {
+	    "unlimited" : true
+	  },
+	  "httpResponse" : {
+	    "statusCode" : 302,
+	    "headers" : {
+	      "Content-Type" : [ "application/json; charset=utf-8" ],
+	      "Cache-Control" : [ "no-cache, no-store" ]
+	    },
+	    "cookies" : {
+	      "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	    }
+	  }
+	}
+
+2018-07-23 15:30:27,907 INFO [nioEventLoopGroup-3-3] o.mockserver.mock.HttpStateHandler [?:?] request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\"username\": \"foo\", \"password\": \"bar\"}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "cookies" : {
+	    "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	  },
+	  "headers" : {
+	    "Cookie" : [ "sessionId=2By8LOhBmaW5nZXJwcmludCIlMDAzMW" ],
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "Postman-Token" : [ "ab85835a-016f-2931-97a3-98f7948096e3" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "38" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ matched expectation:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : "{\"username\": \"foo\", \"password\": \"bar\"}"
+	}
+
+2018-07-23 15:30:27,914 INFO [nioEventLoopGroup-3-3] o.mockserver.mock.HttpStateHandler [?:?] returning response:
+
+	{
+	  "statusCode" : 302,
+	  "headers" : {
+	    "Content-Type" : [ "application/json; charset=utf-8" ],
+	    "Cache-Control" : [ "no-cache, no-store" ],
+	    "connection" : [ "keep-alive" ]
+	  },
+	  "cookies" : {
+	    "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	  }
+	}
+
+ for request:
+
+	{
+	  "method" : "POST",
+	  "path" : "/login",
+	  "body" : {
+	    "type" : "STRING",
+	    "string" : "{\"username\": \"foo\", \"password\": \"bar\"}",
+	    "contentType" : "text/plain; charset=utf-8"
+	  },
+	  "cookies" : {
+	    "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	  },
+	  "headers" : {
+	    "Cookie" : [ "sessionId=2By8LOhBmaW5nZXJwcmludCIlMDAzMW" ],
+	    "Origin" : [ "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop" ],
+	    "Accept" : [ "*/*" ],
+	    "X-Lantern-Version" : [ "4.7.9" ],
+	    "User-Agent" : [ "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" ],
+	    "Host" : [ "localhost:1080" ],
+	    "Accept-Encoding" : [ "gzip, deflate, br" ],
+	    "Cache-Control" : [ "no-cache" ],
+	    "Postman-Token" : [ "ab85835a-016f-2931-97a3-98f7948096e3" ],
+	    "Accept-Language" : [ "en-US,en;q=0.9" ],
+	    "Content-Length" : [ "38" ],
+	    "Proxy-Connection" : [ "keep-alive" ],
+	    "Content-Type" : [ "application/json" ]
+	  },
+	  "keepAlive" : true,
+	  "secure" : false
+	}
+
+ for response action:
+
+	{
+	  "statusCode" : 302,
+	  "headers" : {
+	    "Content-Type" : [ "application/json; charset=utf-8" ],
+	    "Cache-Control" : [ "no-cache, no-store" ]
+	  },
+	  "cookies" : {
+	    "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW"
+	  }
+	}
+

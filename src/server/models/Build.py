@@ -1,17 +1,17 @@
 from sqlalchemy.sql import func
 from application.appx import db
 
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.dialects.postgresql import UUID, TEXT
 
-class Pipeline(db.Model):
-    __tablename__ = "pipeline"
+class Build(db.Model):
+    __tablename__ = "build"
 
-    id = db.Column(UUID(as_uuid=True), primary_key=True)
+    id = db.Column(UUID(as_uuid=True), unique=True, primary_key=True)
+    pipeline_id = db.Column(UUID(as_uuid=True))
     type = db.Column(db.String(120), unique=False, nullable=False)
-    status = db.Column(db.String(120), unique=False, nullable=False)
-    name = db.Column(db.String(120), unique=False, nullable=False)
-    gitUrl = db.Column(db.String(255), unique=False, nullable=False)
-    ciCfgPath = db.Column(db.String(255), unique=False, nullable=False)
+    state = db.Column(db.String(120), unique=False, nullable=False)
+    build_index = db.Column(db.BigInteger, nullable=False)
+    config_file = db.Column(TEXT, nullable=False)
     createDatetime = db.Column(db.DateTime(timezone=True), nullable=False, server_default=func.now())
     updateDatetime = db.Column(db.DateTime(timezone=True), nullable=False, onupdate=func.now())
 

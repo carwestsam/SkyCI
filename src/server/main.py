@@ -5,14 +5,16 @@ import yaml
 import re
 from controllers.pipeline.controller import pipelineCtrl
 from application.appx import app
+from flask_cors import CORS
 
+CORS(app)
 app.register_blueprint(pipelineCtrl, url_prefix='/pipeline')
 
 client = docker.from_env()
 
 @app.route("/")
 def hello():
-    return app.send_static_file('index.html')
+    return app.send_static_file('../web/dist/index.html')
 
 def exe(task):
     result = client.containers.run(task['image'], task['command'], detach=False, stdout=True, stderr=True).decode("utf-8")
