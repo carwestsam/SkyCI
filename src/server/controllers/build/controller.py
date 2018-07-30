@@ -7,24 +7,30 @@ import uuid
 import requests as rqt
 import re
 import yaml
+from controllers.utils import *
 
-main = Blueprint('main', __name__)
+buildCtrl = Blueprint('build', __name__)
 
-
-@main.route('/')
+@buildCtrl.route('/')
 def index():
-	return "Main"
+	return "Build"
+
+@buildCtrl.route('/<pipeline_id>', methods=["GET"])
+def listBuilds(pipeline_id="invalid"):
+	builds = Build.query.filter_by(pipeline_id = pipeline_id).all()
+	result = [o.toJSON() for o in builds]
+	return jsr(result, 200)
 
 def trigger_build(pipeline):
-
-	build_file_url = re.sub("github.com", "raw.githubusercontent.com", git_url)
-	build_file_url = re.sub(".git$", "/master/build.yml", build_file_url)
+	build_file_url = re.sub("github.com", "raw.githubusercontent.com", pipeline.gitUrl)
+	build_file_url = re.sub(".git$", "/master" + pipeline.ciCfgPath, build_file_url)
 	print(build_file_url)
 	build_file = rqt.get(build_file_url).text
-	previous_build = Build.query(id = pipeline.id).query(func.count(Build.id))
+	previous_build = db.session.query(func.count(Build.id)).filter(Build.pipeline_id == pipeline.id).scalar()
+	print('***previous build***', previous_build)
 
 	build = Build(id=uuid.uuid4(),
-				  pipeline_id=pipeline,
+				  pipeline_id=pipeline.id,
 				  type='default',
 				  state='pending',
 				  config_file=build_file,

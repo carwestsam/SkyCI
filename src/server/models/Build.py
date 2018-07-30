@@ -21,8 +21,8 @@ class Build(db.Model):
     def toJSON(self):
         return {
             "id": str(self.id),
-            "type": self.type,
-            "name": self.name,
-            "status": self.status,
-            "gitUrl": self.gitUrl,
+            "pipelineId": str(self.pipeline_id),
+            "state": self.state,
+            "buildIndex": self.build_index,
+            "configFile": self.config_file,
         }

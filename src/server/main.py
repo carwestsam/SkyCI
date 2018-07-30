@@ -4,11 +4,13 @@ import docker
 import yaml
 import re
 from controllers.pipeline.controller import pipelineCtrl
+from controllers.build.controller import buildCtrl
 from application.appx import app
 from flask_cors import CORS
 
 CORS(app)
 app.register_blueprint(pipelineCtrl, url_prefix='/pipeline')
+app.register_blueprint(buildCtrl, url_prefix="/build")
 
 client = docker.from_env()
 

@@ -11,18 +11,21 @@
             <h5>{{pl.status}}</h5>
             <code>{{pl.gitUrl}}</code>
             <h5>{{pl.id}}</h5>
+            <h5><router-link :to="`/build/${pl.id}`">Details</router-link></h5>
             <input type="submit" value="delete" @click="deletePipeline(pl.id)">
+            <input type="submit" value="build" @click="triggerPipeline(pl.id)">
         </div>
     </div>
 </template>
 
 <script>
+// import Router from 'vue-router'
 export default {
     data () {
         return {
-            pl_name: "",
-            pl_git: "",
-            pl_path: "",
+            pl_name: "example",
+            pl_git: "https://github.com/carwestsam/skyci-project-examples.git",
+            pl_path: "/build.yml",
             pipelines: [
                 {
                 }
@@ -53,11 +56,18 @@ export default {
                 })
         },
         deletePipeline: function (pipelineId) {
-            console.log('x')
             this.$http.delete('/pipeline/pl/'+pipelineId)
                 .then((response) => {
                     console.log(response)
                 }).then(()=>{
+                    this.refreshList()
+                })
+        },
+        triggerPipeline: function (pipelineId) {
+            this.$http.get('/pipeline/' + pipelineId + '/build')
+                .then((response) => {
+                    console.log(response.data)
+                }).then(()=> {
                     this.refreshList()
                 })
         }

@@ -7,12 +7,10 @@ from datetime import datetime
 import json
 from sqlalchemy.exc import IntegrityError
 from flask_cors import CORS, cross_origin
+from controllers.utils import *
 
 pipelineCtrl = Blueprint('pipeline', __name__)
 
-def jsr(content, status=200):
-    resp = Response(json.dumps({'content':content, 'code':status}), status=200, mimetype='application/json')
-    return resp
 
 @pipelineCtrl.route('/', methods=["GET"])
 def index():
@@ -51,7 +49,7 @@ def trigger_build(pipeline_id='invalide'):
     if pl == None:
         return jsr({'error': 'Could not find this pipeline'}, 404)
     build = buildCtrl.trigger_build(pl)
-    return pl.id + 'trigger_build'
+    return str(pl.id) + 'trigger_build'
 
 @pipelineCtrl.route('/pl/<pipeline_id>', methods=["DELETE"])
 def delete(pipeline_id="invalid"):
