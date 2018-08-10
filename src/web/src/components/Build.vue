@@ -3,6 +3,7 @@
         <div>
             Build {{$route.params.pipeline_id}}
         </div>
+        <div><router-link to="/pipeline">Pipelines</router-link></div>
         <div v-for="build in builds" :key="build.id">
             <h2>{{build.buildIndex}}</h2>
             <p>{{build.state}}</p>
@@ -25,7 +26,7 @@ export default {
     },
     methods: {
         refreshList: function () {
-                    this.$http.get('/build/' + this.$route.params.pipeline_id)
+                this.$http.get('/build/' + this.$route.params.pipeline_id)
             .then((resp) => {
                 this.builds = resp.data.content
             }).catch((error) => {

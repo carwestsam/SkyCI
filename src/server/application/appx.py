@@ -4,12 +4,14 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
 cwd = os.getcwd()
-static_path = os.path.realpath(os.path.join(cwd , '../web'))
+static_path = os.path.realpath(os.path.join(cwd , '../web/dist'))
 print('static_path', static_path)
 
 if __name__ == "__main__":
+    print ('yes')
     app = Flask(__name__, static_url_path='', static_folder=static_path)
 else:
+    print('worn')
     app = Flask(__name__)
 
 CORS(app)
